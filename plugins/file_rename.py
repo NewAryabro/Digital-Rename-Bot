@@ -85,7 +85,18 @@ async def rename_start(client, message):
                  return await message.reply_text("Sᴏʀʀy Bʀᴏ Tʜɪꜱ Bᴏᴛ Iꜱ Dᴏᴇꜱɴ'ᴛ Sᴜᴩᴩᴏʀᴛ Uᴩʟᴏᴀᴅɪɴɢ Fɪʟᴇꜱ Bɪɢɢᴇʀ Tʜᴀɴ 2Gʙ+")
 
         try:
-            await message.reply_text(
+            
+# Auto/Manual Renaming Logic
+    new_filename = None
+    if message.reply_to_message and message.reply_to_message.text:
+        new_filename = message.reply_to_message.text.strip()
+    else:
+        new_filename = filename  # Default to original filename
+    
+    if not new_filename.endswith(f".{extension_type}"):
+        new_filename += f".{extension_type}"  # Ensure correct extension
+    
+    await message.reply_text(
             text=f"**__ᴍᴇᴅɪᴀ ɪɴꜰᴏ:\n\n◈ ᴏʟᴅ ꜰɪʟᴇ ɴᴀᴍᴇ: `{filename}`\n\n◈ ᴇxᴛᴇɴꜱɪᴏɴ: `{extension_type.upper()}`\n◈ ꜰɪʟᴇ ꜱɪᴢᴇ: `{filesize}`\n◈ ᴍɪᴍᴇ ᴛʏᴇᴩ: `{mime_type}`\n◈ ᴅᴄ ɪᴅ: `{dcid}`\n\nᴘʟᴇᴀsᴇ ᴇɴᴛᴇʀ ᴛʜᴇ ɴᴇᴡ ғɪʟᴇɴᴀᴍᴇ ᴡɪᴛʜ ᴇxᴛᴇɴsɪᴏɴ ᴀɴᴅ ʀᴇᴘʟʏ ᴛʜɪs ᴍᴇssᴀɢᴇ....__**",
 	    reply_to_message_id=message.id,  
 	    reply_markup=ForceReply(True)
@@ -93,7 +104,18 @@ async def rename_start(client, message):
             await sleep(30)
         except FloodWait as e:
             await sleep(e.value)
-            await message.reply_text(
+            
+# Auto/Manual Renaming Logic
+    new_filename = None
+    if message.reply_to_message and message.reply_to_message.text:
+        new_filename = message.reply_to_message.text.strip()
+    else:
+        new_filename = filename  # Default to original filename
+    
+    if not new_filename.endswith(f".{extension_type}"):
+        new_filename += f".{extension_type}"  # Ensure correct extension
+    
+    await message.reply_text(
             text=f"**__ᴍᴇᴅɪᴀ ɪɴꜰᴏ:\n\n◈ ᴏʟᴅ ꜰɪʟᴇ ɴᴀᴍᴇ: `{filename}`\n\n◈ ᴇxᴛᴇɴꜱɪᴏɴ: `{extension_type.upper()}`\n◈ ꜰɪʟᴇ ꜱɪᴢᴇ: `{filesize}`\n◈ ᴍɪᴍᴇ ᴛʏᴇᴩ: `{mime_type}`\n◈ ᴅᴄ ɪᴅ: `{dcid}`\n\nᴘʟᴇᴀsᴇ ᴇɴᴛᴇʀ ᴛʜᴇ ɴᴇᴡ ғɪʟᴇɴᴀᴍᴇ ᴡɪᴛʜ ᴇxᴛᴇɴsɪᴏɴ ᴀɴᴅ ʀᴇᴘʟʏ ᴛʜɪs ᴍᴇssᴀɢᴇ....__**",
 	    reply_to_message_id=message.id,  
 	    reply_markup=ForceReply(True)
@@ -105,7 +127,18 @@ async def rename_start(client, message):
             return await message.reply_text("If you want to rename 4GB+ files then you will have to buy premium. /plans")
 
         try:
-            await message.reply_text(
+            
+# Auto/Manual Renaming Logic
+    new_filename = None
+    if message.reply_to_message and message.reply_to_message.text:
+        new_filename = message.reply_to_message.text.strip()
+    else:
+        new_filename = filename  # Default to original filename
+    
+    if not new_filename.endswith(f".{extension_type}"):
+        new_filename += f".{extension_type}"  # Ensure correct extension
+    
+    await message.reply_text(
             text=f"**__ᴍᴇᴅɪᴀ ɪɴꜰᴏ:\n\n◈ ᴏʟᴅ ꜰɪʟᴇ ɴᴀᴍᴇ: `{filename}`\n\n◈ ᴇxᴛᴇɴꜱɪᴏɴ: `{extension_type.upper()}`\n◈ ꜰɪʟᴇ ꜱɪᴢᴇ: `{filesize}`\n◈ ᴍɪᴍᴇ ᴛʏᴇᴩ: `{mime_type}`\n◈ ᴅᴄ ɪᴅ: `{dcid}`\n\nᴘʟᴇᴀsᴇ ᴇɴᴛᴇʀ ᴛʜᴇ ɴᴇᴡ ғɪʟᴇɴᴀᴍᴇ ᴡɪᴛʜ ᴇxᴛᴇɴsɪᴏɴ ᴀɴᴅ ʀᴇᴘʟʏ ᴛʜɪs ᴍᴇssᴀɢᴇ....__**",
 	    reply_to_message_id=message.id,  
 	    reply_markup=ForceReply(True)
@@ -113,7 +146,18 @@ async def rename_start(client, message):
             await sleep(30)
         except FloodWait as e:
             await sleep(e.value)
-            await message.reply_text(
+            
+# Auto/Manual Renaming Logic
+    new_filename = None
+    if message.reply_to_message and message.reply_to_message.text:
+        new_filename = message.reply_to_message.text.strip()
+    else:
+        new_filename = filename  # Default to original filename
+    
+    if not new_filename.endswith(f".{extension_type}"):
+        new_filename += f".{extension_type}"  # Ensure correct extension
+    
+    await message.reply_text(
             text=f"**__ᴍᴇᴅɪᴀ ɪɴꜰᴏ:\n\n◈ ᴏʟᴅ ꜰɪʟᴇ ɴᴀᴍᴇ: `{filename}`\n\n◈ ᴇxᴛᴇɴꜱɪᴏɴ: `{extension_type.upper()}`\n◈ ꜰɪʟᴇ ꜱɪᴢᴇ: `{filesize}`\n◈ ᴍɪᴍᴇ ᴛʏᴇᴩ: `{mime_type}`\n◈ ᴅᴄ ɪᴅ: `{dcid}`\n\nᴘʟᴇᴀsᴇ ᴇɴᴛᴇʀ ᴛʜᴇ ɴᴇᴡ ғɪʟᴇɴᴀᴍᴇ ᴡɪᴛʜ ᴇxᴛᴇɴsɪᴏɴ ᴀɴᴅ ʀᴇᴘʟʏ ᴛʜɪs ᴍᴇssᴀɢᴇ....__**",
 	    reply_to_message_id=message.id,  
 	    reply_markup=ForceReply(True)

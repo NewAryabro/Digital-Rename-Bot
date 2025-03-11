@@ -38,6 +38,8 @@ DOWNLOAD_TEXT = "Download Started..."
 
 app = Client("4gb_FileRenameBot", api_id=Config.API_ID, api_hash=Config.API_HASH, session_string=Config.STRING_SESSION)
 
+AUTO_RENAME_FORMAT = "Renamed_File_{random}.{ext}"  # Customize this format
+
 @Client.on_message(filters.private & (filters.audio | filters.document | filters.video))
 async def rename_start(client, message):
     user_id = message.from_user.id
@@ -67,14 +69,18 @@ async def rename_start(client, message):
     if rkn_file.file_size > 2000 * 1024 * 1024 and not Config.STRING_SESSION:
         return await message.reply_text("This bot does not support renaming files larger than 2GB+.")
 
+    # Auto Rename Logic
+    auto_new_name = AUTO_RENAME_FORMAT.format(random=int(time.time()), ext=extension_type)
+
     await message.reply_text(
         text=f"**Media Info:**\n\n"
              f"◈ Old File Name: `{filename}`\n"
+             f"◈ New File Name (Auto-Renamed): `{auto_new_name}`\n"
              f"◈ Extension: `{extension_type.upper()}`\n"
              f"◈ File Size: `{filesize}`\n"
              f"◈ MIME Type: `{mime_type}`\n"
              f"◈ DC ID: `{dcid}`\n\n"
-             f"Please enter the new filename with extension and reply to this message.",
+             f"Please enter the new filename with extension and reply to this message if you want a custom name.",
         reply_to_message_id=message.id,
         reply_markup=ForceReply(True)
     )
@@ -106,4 +112,4 @@ async def refunc(client, message):
             text=f"**Select The Output File Type**\n**• File Name :-** `{new_name}`",
             reply_to_message_id=file.id,
             reply_markup=InlineKeyboardMarkup(button)
-	)
+	    )
